@@ -9,6 +9,7 @@ module.exports = {
         brandYellow: "#fdc62e",
         brandBlue: "#1376f4",
         brandWhite: "#eeeeee",
+        brandGreen: "#5cb85c",
       },
       container: {
         center: true,
