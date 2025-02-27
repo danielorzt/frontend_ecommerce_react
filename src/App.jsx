@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Hero from "./components/Hero/Hero.jsx"
 import Category from "./components/Category/Category.jsx";
@@ -8,7 +8,8 @@ import Banner from "./components/Banner/Banner.jsx";
 import Products from "./components/Products/Products.jsx";
 import Blogs from "./components/Blogs/Blogs.jsx";
 import Partners from "./components/Partners/Partners.jsx";
-
+import Footer from "./components/Footer/Footer.jsx";
+import Popup from "./components/Popup/Popup.jsx";
 import headphone from "./assets/hero/headphone.png";
 import vr from "./assets/category/vr.png";
 
@@ -37,10 +38,15 @@ const BannerData2= {
 
 
 const App = () => {
+    const [orderPopup, setOrderPopup] = useState(true);
+
+    const handleOrderPopup = () => {
+        setOrderPopup(!orderPopup);
+    }
     return (
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
-            <Navbar/>
-            <Hero />
+            <Navbar handleOrderPopup={handleOrderPopup} />
+            <Hero handleOrderPopup={handleOrderPopup} />
             <Category />
             <Category2 />
             <Services />
@@ -49,6 +55,9 @@ const App = () => {
             <Banner data={BannerData2}/>
             <Blogs />
             <Partners/>
+            <Footer/>
+            <Popup orderPopup={orderPopup}
+            setOrderPopup={setOrderPopup}/>
         </div>
     );
 }

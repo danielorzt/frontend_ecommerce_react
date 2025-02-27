@@ -33,7 +33,7 @@ const HeroData = [
         description: "Lorem ipsum dolor",
     },
 ];
-const Hero = () => {
+const Hero = ({handleOrderPopup})  => {
 
     const settings = {
                 dots: true,
@@ -67,6 +67,7 @@ const Hero = () => {
                                     text="Shop By Category"
                                     bgColor="bg-primary"
                                     textColor="text-white"
+                                    handleOrderPopup={handleOrderPopup}
                                     />
                                 </div>
                             </div>
