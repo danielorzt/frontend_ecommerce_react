@@ -47,14 +47,16 @@ const DropdownLinks = [
 
 const Navbar = () => {
     return (
-        <div className="bg-white duration-200 relative z-40 dark:bg-pri dark:text-white ">
+        <div className="bg-white duration-200 relative z-40 dark:bg-gray-800 dark:text-white ">
             <div className="py-4">
                 <div className="container flex justify-between items-center">
                     {/* Logo and links section */}
                     <div className="flex items-center gap-4">
-                        <a href="#" className="text-primary font-semibold tracking-wider text-2xl uppercase sm:text-3xl">
+                        <a href="#"
+                           className="text-primary font-[Lobster] tracking-wider text-2xl uppercase sm:text-3xl">
                             Barber music & spa
                         </a>
+
 
                         {/* Menu items */}
                         <div className="hidden sm:block">
@@ -70,26 +72,29 @@ const Navbar = () => {
                                 ))}
                                 {/*Dropdown*/}
                                 <div className="relative cursor-pointer group">
-                                    <div className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2 duration-200">
+                                    <div
+                                        className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2 duration-200">
                                         Quick Links
-                                        <FaCaretDown className="group-hover:rotate-180 duration-300" />
+                                        <FaCaretDown className="group-hover:rotate-180 duration-300"/>
                                     </div>
-                                {/*Dropdown list*/}
-                                <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900">
-                                    <ul className="space-y-2 ">
-                                        {DropdownLinks.map((data,index) => (
-                                                <li key={data.id}>
+                                    {/* Dropdown list */}
+                                    <div
+                                        className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900">
+                                        <ul className="space-y-2 text-center">
+                                            {DropdownLinks.map((data) => (
+                                                <li key={data.id} className="rounded-lg">
                                                     <a
-                                                        className="text-gray-500 hover:text-black dark:hover:text-white duration-200 hover:bg-primary/20"
-                                                        href={data.link}>
+                                                        className="block px-4 py-2 text-gray-500 rounded-lg transition-all duration-300
+                        hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white"
+                                                        href={data.link}
+                                                    >
                                                         {data.name}
                                                     </a>
-
                                                 </li>
                                             ))}
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
                             </ul>
                         </div>
                     </div>
@@ -97,24 +102,33 @@ const Navbar = () => {
                     <div className="flex justify-between items-center gap-4">
                         {/* Search bar section */}
                         <div className="relative group hidden sm:block">
+                            {/* Ícono de búsqueda visible siempre */}
+                            <IoMdSearch
+                                className="text-2xl text-gray-700 dark:text-gray-400 absolute top-1/2 -translate-y-1/2 left-2
+        group-hover:text-primary transition-all duration-300"
+                            />
+
+                            {/* Input que solo se muestra al hacer hover */}
                             <input
                                 type="text"
                                 placeholder="Search"
-                                className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+                                className="w-0 opacity-0 px-4 py-2 pl-10 border border-gray-300 rounded-lg
+        focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:border-gray-700 dark:text-white
+        group-hover:w-48 group-hover:opacity-100 transition-all duration-300"
                             />
-                            <IoMdSearch className="text-xl text-gray-700 group-hover:text-primary dark:text-gray-400 absolute top-1/2 -translate-y-1/2 right-3 duration-200" />
                         </div>
+
                         {/* Order-button section */}
                         <button className="relative p-3">
                             <FaCartShopping className="text-xl text-gray-600 dark:text-gray-400"/>
                             <div
-                            className="w-4 h-4 bg-red-500 text-white rounded-full absolute top-0 right-0 flex items-center justify-center text-xs ">
+                                className="w-4 h-4 bg-red-500 text-white rounded-full absolute top-0 right-0 flex items-center justify-center text-xs ">
 
                             </div>
                         </button>
                         {/* Dark mode section */}
                         <div>
-                            <DarkMode />
+                            <DarkMode/>
                         </div>
                     </div>
                 </div>

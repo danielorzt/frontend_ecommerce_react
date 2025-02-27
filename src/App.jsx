@@ -32,6 +32,7 @@ const App = () => {
             <Services />
             <Banner data={BannerData}/>
             <Products/>
+            <Banner data={BannerData}/>
         </div>
     );
 }

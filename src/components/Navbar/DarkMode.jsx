@@ -1,31 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LightButton from "../../assets/website/light-mode-button.png";
 import DarkButton from "../../assets/website/dark-mode-button.png";
 
 const DarkMode = () => {
-    // Obtener el tema del localStorage o usar "light" por defecto
-    const [theme, setTheme] = React.useState(
+    const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
     );
 
-    const element = document.documentElement; //access to html
-    console.log(element);
+    // Aplicar el tema al cargar
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            setTheme("dark");
+        }
+    }, []);
 
-    //set theme to localStrorage and html element
-    React.useEffect(() => {
+    // Aplicar cambios al cambiar de tema
+    useEffect(() => {
+        const element = document.documentElement;
         localStorage.setItem("theme", theme);
         if (theme === "dark") {
             element.classList.add("dark");
-            element.classList.add("dark");
         } else {
-            element.classList.remove("light");
             element.classList.remove("dark");
         }
     }, [theme]);
 
     return (
         <div className="relative">
-            {/* Botón de modo claro */}
             <img
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 src={LightButton}
@@ -35,7 +38,6 @@ const DarkMode = () => {
                 } transition-all duration-300`}
             />
 
-            {/* Botón de modo oscuro */}
             <img
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 src={DarkButton}
