@@ -6,8 +6,12 @@ import Category2 from "./components/Category/Category2.jsx";
 import Services from "./components/Services/Services.jsx";
 import Banner from "./components/Banner/Banner.jsx";
 import Products from "./components/Products/Products.jsx";
+import Blogs from "./components/Blogs/Blogs.jsx";
+import Partners from "./components/Partners/Partners.jsx";
 
 import headphone from "./assets/hero/headphone.png";
+import vr from "./assets/category/vr.png";
+
 
 const BannerData= {
     discount: "30% OFF",
@@ -18,6 +22,16 @@ const BannerData= {
     title3: "Winter Solo",
     title4: "Lorem ipsum dolor sit amet, consetetur adipisicing elit.Eaque reiciendis",
     bgColor: "#f42c37",
+};
+const BannerData2= {
+    discount: "50% OFF",
+    title: "Happy hours",
+    date: "10 febrero al 28 de febrero",
+    image: vr,
+    title2: "Air Solo Bass",
+    title3: "Winter Solo",
+    title4: "Lorem ipsum dolor sit amet, consetetur adipisicing elit.Eaque reiciendis",
+    bgColor: "#2dcc6f",
 };
 
 
@@ -32,7 +46,9 @@ const App = () => {
             <Services />
             <Banner data={BannerData}/>
             <Products/>
-            <Banner data={BannerData}/>
+            <Banner data={BannerData2}/>
+            <Blogs />
+            <Partners/>
         </div>
     );
 }
