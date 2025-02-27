@@ -5,6 +5,7 @@ import Category from "./components/Category/Category.jsx";
 import Category2 from "./components/Category/Category2.jsx";
 import Services from "./components/Services/Services.jsx";
 import Banner from "./components/Banner/Banner.jsx";
+import Products from "./components/Products/Products.jsx";
 
 import headphone from "./assets/hero/headphone.png";
 
@@ -30,6 +31,7 @@ const App = () => {
             <Category2 />
             <Services />
             <Banner data={BannerData}/>
+            <Products/>
         </div>
     );
 }

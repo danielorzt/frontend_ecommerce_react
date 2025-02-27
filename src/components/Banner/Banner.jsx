@@ -17,7 +17,18 @@ const Banner = ({ data }) => {
                     <p className="text-sm">{data.date}</p>
                 </div>
                 {/* Second col */}
+                <div className="h-full flex items-center">
+                    <img src={data.image} alt="" className="scale-125 w-[250px] md:w-[340px] mx-auto drop-shadow-2xl object-cover" />
+                </div>
                 {/* Third col */}
+                <div className="flex flex-col justify-center gap-4 p-6 sm:p-8 ">
+                    <p className="font-bold text-xl">{data.title2}</p>
+                    <p className="text-3xl sm:text-5xl font-bold">{data.title3}</p>
+                    <p className="text-sm tracking-wide leading-5">{data.title4}</p>
+                    <div>
+                        <button style={{color:data.bgColor}} className="bg-white py-2 px-4 rounded-full">Shop Now </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
