@@ -15,6 +15,8 @@ import vr from "./assets/category/vr.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TestScene from "./components/TestScene.jsx";
+import { Suspense } from "react";
+
 
 const BannerData = {
     discount: "30% OFF",
@@ -57,10 +59,10 @@ const App = () => {
     return (
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
             <Navbar handleOrderPopup={handleOrderPopup} />
-            <div style={{ width: "100vw", height: "100vh" }}>
-                <TestScene />
-            </div>
             <Hero handleOrderPopup={handleOrderPopup} />
+            <Suspense fallback={<div>Cargando...</div>}>
+                <TestScene />
+            </Suspense>
             <Category />
             <Category2 />
             <Services />
