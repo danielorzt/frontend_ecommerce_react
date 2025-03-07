@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Hero from "./components/Hero/Hero.jsx";
+import Hero2 from "./components/Hero/Hero2.jsx";
 import Category from "./components/Category/Category.jsx";
 import Category2 from "./components/Category/Category2.jsx";
 import Services from "./components/Services/Services.jsx";
@@ -14,11 +15,8 @@ import headphone from "./assets/hero/headphone.png";
 import vr from "./assets/category/vr.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TestScene from "./components/TestScene.jsx";
-import { Suspense } from "react";
 
 const modelPath = "/models/barbers_pole.glb";  // No src ni import
-
 
 const BannerData = {
     discount: "30% OFF",
@@ -62,8 +60,8 @@ const App = () => {
         <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
             <Navbar handleOrderPopup={handleOrderPopup} />
             <Hero handleOrderPopup={handleOrderPopup} />
-            <Suspense fallback={<div>Cargando...</div>}>
-                <TestScene />
+            <Suspense fallback={<div>Cargando modelos 3D...</div>}>
+                <Hero2 handleOrderPopup={handleOrderPopup} />
             </Suspense>
             <Category />
             <Category2 />
@@ -75,7 +73,6 @@ const App = () => {
             <Partners />
             <Footer />
             <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
-
         </div>
     );
 };
