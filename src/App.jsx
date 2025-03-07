@@ -17,6 +17,8 @@ import "aos/dist/aos.css";
 import TestScene from "./components/TestScene.jsx";
 import { Suspense } from "react";
 
+const modelPath = "/models/barbers_pole.glb";  // No src ni import
+
 
 const BannerData = {
     discount: "30% OFF",
